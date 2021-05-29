@@ -124,6 +124,51 @@ module.exports.inicio = function(application, req, res){
                         };        
                 mpModel.retorno(obj.data.id, callback);
 
+
+
+
+                const axios = require('axios')
+                console.log('post enviará');
+            axios
+            .get('https://api.mercadopago.com/v1/payments/'+obj.data.id+'?access_token=TEST-7360931303703983-082420-403bd4058ccb931c56962684437df3e7-44599713', 
+            {
+                
+              }
+            
+            )
+            .then((res) => {
+                //console.log(`statusCode: ${res.statusCode}`)
+                
+                
+                //console.log(res.data);
+                //link=res.data.sandbox_init_point;
+                //res.render(res.data['sandbox_init_point']);
+                //console.log('********************************************************************************')
+                console.log(res.data);
+                link=res.data;
+                //res.render(res.data['sandbox_init_point']);
+                //c();
+                
+
+            })
+            .catch((error) => {
+                //console.error(error)
+                console.log('********************************************************************************')
+                console.log('error')
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+
                 res.render('home/ajax1.ejs');;
                   
                 });
