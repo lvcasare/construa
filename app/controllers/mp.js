@@ -124,7 +124,7 @@ module.exports.inicio = function(application, req, res){
                         };        
                 mpModel.retorno(obj.data.id, callback);
 
-                res.render('home/ajax1.ejs');
+                res.render('home/ajax1.ejs');;
                   
                 });
 
