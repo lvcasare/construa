@@ -5,7 +5,7 @@ function mpDAO(connection){
 
 
 mpDAO.prototype.retorno = function (pedidoid, callback1){ 
-    this._connection.query('INSERT INTO mp (ref) VALUES (1)');
+    this._connection.query('INSERT INTO mp (ref) VALUES ('+pedidoid+')');
 }
 
 mpDAO.prototype.adicionar = function (pagamento, callback){ 
