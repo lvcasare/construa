@@ -6,13 +6,13 @@ module.exports = function (application){
         
     });
 
-    application.post('/mp_return', function (req,res){
-        application.app.controllers.mp.return(application,req,res);
+    application.post('/recebepost', function (req,res){
+        application.app.controllers.mp.recebepost(application,req,res);
         
     });
 
-    application.get('/mp_return1', function (req,res){
-        application.app.controllers.mp.return1(application,req,res);
+    application.get('/enviapost', function (req,res){
+        application.app.controllers.mp.enviapost (application,req,res);
         
     });;
 
