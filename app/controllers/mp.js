@@ -48,39 +48,14 @@ module.exports.inicio = function(application, req, res){
 
             }           
             }
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-            module.exports.return = function(application, req, res){
-
-                
-                var get=req.query;
-                
-                var connection = application.config.dbConnection();   
-            
-                var mpModel = new application.app.models.mpDAO(connection);       
-                
-                var callback = function(erro,result){
-                        //console.log(result);
-                        //res.redirect('/pedidos');;
-                        };        
-                mpModel.retorno(1, callback);
-
-                res.render('home/ajax1.ejs');
-
-                
-
-
-
-
-
-            }
-
-
-            module.exports.return1 = function(application, req, res){                
+            module.exports.enviapost = function(application, req, res){   
+                var link = '';             
                 const axios = require('axios')
                 console.log('post enviará');
             axios
-            .post('http://localhost:3000/mp_return', 
+            .post('http://localhost:3000/recebepost', 
             {   
             "notification_url":"https://webhook.site/2035bc56-1123-4e6b-8871-64ebfe713853",
             "external_reference": '',
@@ -99,11 +74,16 @@ module.exports.inicio = function(application, req, res){
             )
             .then((res) => {
                 //console.log(`statusCode: ${res.statusCode}`)
-                console.log('post sent')
                 
-                //console.log(res.data);
+                
+                console.log(res.data);
                 //link=res.data.sandbox_init_point;
                 //res.render(res.data['sandbox_init_point']);
+                console.log('********************************************************************************')
+                console.log('post sent')
+                link=res.data;
+                //res.render(res.data['sandbox_init_point']);
+                //c();
                 
 
             })
@@ -112,4 +92,35 @@ module.exports.inicio = function(application, req, res){
                 console.log('********************************************************************************')
                 console.log('error')
             })
+
+            function c(){
+                res.render(link);
+
+            } 
+            }
+
+
+
+            //////////////////////////////////////////////////////////////
+            module.exports.recebepost = function(application, req, res){
+
+                
+                var get=req.query;
+                
+                var connection = application.config.dbConnection();   
+            
+                var mpModel = new application.app.models.mpDAO(connection);       
+                
+                var callback = function(erro,result){
+                        //console.log(result);
+                        //res.redirect('/pedidos');;
+                        };        
+                mpModel.retorno(1, callback);
+
+                res.render('home/ajax1.ejs');         
+
+
+
+
+
             }
