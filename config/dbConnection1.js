@@ -5,10 +5,10 @@ var mysql = require ('mysql');
 var connMysql = function(){
 
 return mysql.createConnection({    
-    host: 'mysql.construasuacasa.kinghost.net',
-    user: 'construasuacas',
-    password:'fjsjfhsahd5157YTRcccGr',
-    database: 'construasuacas'
+    host: '52.67.220.198',
+    user: 'monty',
+    password:'fjsjfhs@(ahd5157YTRcccGr',//fjsjfhsahd5157YTRcccGr
+    database: 'portal_noticias'
 });
 
 };

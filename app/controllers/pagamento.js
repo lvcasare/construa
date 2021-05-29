@@ -1,7 +1,6 @@
 module.exports.pagamento = function(application, req, res){
-    module = require('readcookie.js');
-    var obra = module.cook(req);
-    if (obra==null) obra ='nova';
+    
+    var obra ='nova';
 
     var get=req.query;
     
@@ -68,9 +67,8 @@ module.exports.upload2 = function(application, req, res){
 
 
 module.exports.pagamentos = function(application, req, res){  
-    module = require('readcookie.js');
-    var obra = module.cook(req);
-    if (obra==null) obra ='nova';
+    
+    var obra ='nova';
 
     var connection = application.config.dbConnection(); 
 

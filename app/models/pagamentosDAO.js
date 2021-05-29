@@ -18,6 +18,7 @@ pagamentosDAO.prototype.updateUpload = function (id, z,callback){
 }
 
 pagamentosDAO.prototype.pagamentos = function (obra, callback){ 
+    console.log('pagamentos: '+ obra)  ;
     this._connection.query('SELECT * FROM pagamentos WHERE obra = "'+ obra +'"', callback);
 
 }

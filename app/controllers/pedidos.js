@@ -1,9 +1,8 @@
 module.exports.pedidos = function(application, req, res){
     
     
-    module = require('readcookie.js');
-    var obra = module.cook(req);
-    if (obra==null) obra ='nova'; 
+
+    var  obra ='nova'; 
     
     var get=req.query;
     
