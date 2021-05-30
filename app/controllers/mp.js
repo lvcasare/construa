@@ -172,21 +172,46 @@ module.exports.inicio = function(application, req, res){
                 res.render('home/ajax1.ejs');;
                   
                 });
+            }
 
+            module.exports.links = function(application, req, res){
+                var get=req.query;
+
+                var mes = 6;
+    
+                var connection = application.config.dbConnection();   
+            
+                var mpModel = new application.app.models.mpDAO(connection);       
+                
+                var callback = function(erro,result){
+                    console.log(result);
+                    res.render('mp/links.ejs',{dados:result});
+                        };        
+                mpModel.links(mes,callback);             
+            
 
                 
-                //var get=res.query;
-                //var post = req.body;
-                //var get = req.query
+            }
 
-                //console.log (post);
-                ;
+
+            module.exports.link = function(application, req, res){
+                var get=req.query;
+
+                //console.log(get.id);
+
+                var connection = application.config.dbConnection();   
+            
+                var mpModel = new application.app.models.mpDAO(connection);       
                 
+                var callback = function(erro,result){
+                    //console.log(result[0].link);
+                    //res.render('mp/links.ejs',{dados:result});
+                    res.redirect('http://opoderdalinguagem-com.umbler.net/mp_inicio'+result[0].link)
+                        };        
+                mpModel.link(get.id,callback);
+
+                   
+              
+
                 
-                         
-
-
-
-
-
             }
